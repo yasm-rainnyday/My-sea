@@ -1,0 +1,136 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 350vh; /* increased scroll space for all 3 videos with better spacing */
+    overflow-y: scroll; /* always show scrollbar to prevent gap */
+}
+
+.video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1;
+}
+
+video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+#Sunrise {
+    opacity: 1;
+}
+
+#sunset,
+#jellyfish {
+    opacity: 0;
+}
+
+.sunrise-text {
+    opacity: 1;
+}
+
+.sunset-text,
+.jellyfish-text {
+    opacity: 0;
+}
+
+
+
+.typewriter span.line {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0; /* Start completely hidden */
+}
+
+.typewriter.active span.line {
+    animation: typing 7s steps(180) forwards; /* 7 seconds per line, 180 steps = slow character-by-character reveal */
+}
+
+/* Stagger each line to start one after another with NO gap */
+.typewriter.active span.line:nth-child(1) { animation-delay: 0s; }
+.typewriter.active span.line:nth-child(3) { animation-delay: 3s; }
+.typewriter.active span.line:nth-child(5) { animation-delay: 6s; }
+.typewriter.active span.line:nth-child(7) { animation-delay: 9s; }
+.typewriter.active span.line:nth-child(9) { animation-delay: 12s; }
+.typewriter.active span.line:nth-child(11) { animation-delay: 15s; }
+.typewriter.active span.line:nth-child(13) { animation-delay: 18s; }
+.typewriter.active span.line:nth-child(15) { animation-delay: 21s; }
+
+/* Blinking cursor only on the last line, after all typing is complete */
+.typewriter.active span.line.last-line {
+    border-right: 2px solid white;
+    animation: typing 7s steps(350) forwards 21s, blink .7s step-end infinite 21s;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink {
+    50% { border-color: transparent }
+}
+
+
+
+.hero-text {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    z-index: 10;
+    opacity: 1;
+    transition: opacity 1.5s ease;
+    width: 90%;
+}
+
+/* second text starts invisible */
+.sunset-text {
+    opacity: 0;
+}
+
+.jellyfish-text {
+    opacity: 0;
+    transition: opacity 1.5s ease;
+}
+
+
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.35); /* adjust darkness */
+    z-index: 5;
+}
+
+
+
+
+#Sunrise {
+    opacity: 1;
+    transition: opacity 1.5s ease;
+}
+
+#sunset {
+    opacity: 0;
+    transition: opacity 1.5s ease;
+}
+
+
